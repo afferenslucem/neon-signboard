@@ -1,0 +1,61 @@
+// Color names
+:root {
+  --bg-color: #07252d;
+  --neon-turned-off-color: #0e3742;
+  --neon-turned-on-color: #03bcf4;
+}
+
+// Styles
+
+html {
+  font-family: Arial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+h2 {
+  font-size: 6rem;
+  color: var(--neon-turned-off-color);
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  user-select: none;
+
+  -webkit-box-reflect: below -40px linear-gradient(transparent, #0004);
+
+  span {
+    animation: flashing 5s linear infinite;
+
+    &:nth-child(even) {
+      animation-delay: 400ms;
+    }
+  }
+}
+
+@keyframes flashing {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: var(--neon-turned-off-color);
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-turned-on-color),
+    0 0 20px var(--neon-turned-on-color),
+    0 0 40px var(--neon-turned-on-color),
+    0 0 80px var(--neon-turned-on-color),
+    0 0 160px var(--neon-turned-on-color),
+    0 0 400px var(--neon-turned-on-color);
+  }
+}
